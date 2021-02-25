@@ -337,7 +337,7 @@ export default {
         return this.$message({
           message: '获取用户列表失败',
           type: 'error',
-          duration: 900
+          duration: 900,
         })
       }
       this.userlist = res.data.users
