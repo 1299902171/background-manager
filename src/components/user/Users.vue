@@ -43,7 +43,7 @@
                          @click="showEditDialog(scope.row.id)"></el-button>
             </el-tooltip>
             <el-tooltip :enterable="false" content="删除用户" effect="dark" placement="top">
-              <el-button icon="el-icon-delete" size="mini" type="danger"></el-button>
+              <el-button icon="el-icon-delete" size="mini" type="danger" @click="removeUserById(scope.row.id)"></el-button>
             </el-tooltip>
             <el-tooltip :enterable="false" content="分配角色" effect="dark" placement="top">
               <el-button icon="el-icon-setting" size="mini" type="warning"></el-button>
@@ -232,6 +232,34 @@ export default {
     this.getUserList()
   },
   methods: {
+    //根据id删除用户信息
+    async removeUserById(id){
+      //弹框询问是否删除数据
+      const res = await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).catch(err => {
+        return err
+      })
+      if(res !== 'confirm'){
+        return this.$message.info('已取消删除')
+      }
+      const {data:res1} = await this.$http.delete('users/'+id)
+      if(res1.meta.status !== 200){
+        return this.$message({
+          message:'删除用户失败',
+          type:'error',
+          duration:2000
+        })
+      }
+      this.$message({
+        message:'删除成功',
+        type:'success',
+        duration:1200
+      })
+      await this.getUserList()
+    },
     //修改用户信息并提交
     editUserInfo () {
       this.$refs.editFormRef.validate(async valid => {
