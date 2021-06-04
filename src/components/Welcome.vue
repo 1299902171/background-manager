@@ -1,6 +1,6 @@
 <template>
   <div>
-    ads
+    <h3>welcome</h3>
   </div>
 </template>
 

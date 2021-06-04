@@ -3,7 +3,7 @@
     <!--头部区域-->
     <el-header>
       <div>
-        <img src="../assets/logo.png" width="40" height="40">
+        <img height="40" src="../assets/logo.png" width="40">
         <span>后台管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出登录</el-button>
@@ -12,15 +12,16 @@
     <el-container>
       <!--侧边栏-->
       <el-aside :width="isCollapse ? '64px':'200px'">
+        <!--折叠条-->
         <div class="toggle-button" @click="toggleCollapse">|||</div>
         <!--侧边栏菜单-->
-        <el-menu :unique-opened="true" background-color="#333744"
-                 text-color="#fff" active-text-color="#409EFF"
-                 :collapse="isCollapse" :collapse-transition="false"
-                 :router="true" :default-active="activePath"
+        <el-menu :collapse="isCollapse" :collapse-transition="false"
+                 :default-active="activePath" :router="true"
+                 :unique-opened="true" active-text-color="#409EFF"
+                 background-color="#333744" text-color="#fff"
         >
           <!--一级菜单-->
-          <el-submenu :index="item.id+''" v-for="item in menuList" :key="item.id">
+          <el-submenu v-for="item in menuList" :key="item.id" :index="item.id+''">
             <!--一级菜单的模板区域-->
             <template slot="title">
               <!--图标-->
@@ -29,9 +30,9 @@
               <span>{{ item.authName }}</span>
             </template>
             <!--二级菜单-->
-            <el-menu-item :index="'/'+subItem.path"
-                          v-for="subItem in item.children"
+            <el-menu-item v-for="subItem in item.children"
                           :key="subItem.id"
+                          :index="'/'+subItem.path"
                           @click="saveNavState('/'+subItem.path)"
             >
               <template slot="title">
@@ -56,7 +57,7 @@ export default {
   data () {
     return {
       //被激活的链接地址
-      activePath:'',
+      activePath: '',
       //是否折叠
       isCollapse: false,
       //左侧菜单数据
@@ -76,8 +77,8 @@ export default {
   },
   methods: {
     //保存链接的激活状态
-    saveNavState(activePath){
-      window.sessionStorage.setItem('activePath',activePath)
+    saveNavState (activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
       this.activePath = activePath
     },
     //菜单的折叠与展开
