@@ -143,18 +143,18 @@ export default {
       setRightDialogVisible: false,
       // 权限列表
       rightsList: [],
-      //  树形控件的属性绑定对象
+      // 树形控件的属性绑定对象
       treeProps: {
         label: 'authName',
         children: 'children'
       },
-      //   默认选中节点ID值
+      // 默认选中节点ID值
       defKeys: [],
-      //   添加用户对话框
+      // 添加用户对话框
       AddRoleDialogVisible: false,
       // 添加角色表单
       addRoleForm: {},
-      //   添加角色表单验证
+      // 添加角色表单验证
       addRoleFormRules: {
         roleName: [
           {

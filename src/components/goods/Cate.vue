@@ -174,7 +174,7 @@ export default {
       this.$message.success('删除商品分类成功！')
       this.getCateList()
     },
-    // 显示编辑对话框
+    //  显示编辑对话框
     async showEditCateDialog (id) {
       const { data: res } = await this.$http.get('categories/' + id)
       if (res.meta.status !== 200) return this.$message.error('获取分类失败！')

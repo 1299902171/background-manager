@@ -35,7 +35,7 @@ export default {
     }
   },
   created () {
-    //获取所有的权限
+    // 获取所有的权限
     this.getRightsList()
   },
   methods: {
