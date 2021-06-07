@@ -89,7 +89,7 @@ export default {
           type: 'success',
           duration: 800
         })
-        //  将登录成功后的token保存到客户端的sessionStorage中
+        // 将登录成功后的token保存到客户端的sessionStorage中
         //项目中除了登录之外的其他接口，必须在登录之后才能访问
         //token只应在当前网站打开期间生效，所以将token保存在sessionStorage中
         window.sessionStorage.setItem('token', res.data.token)

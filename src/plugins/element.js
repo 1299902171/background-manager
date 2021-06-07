@@ -65,5 +65,6 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Switch)
 
+
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
