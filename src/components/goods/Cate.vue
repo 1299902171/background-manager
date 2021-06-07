@@ -157,7 +157,7 @@ export default {
     this.getCateList()
   },
   methods: {
-    // 删除分类
+    //  删除分类
     async removeCate (id) {
       const confirmResult = await this.$confirm('此操作将永久删除该分类, 是否继续?', '提示', {
         confirmButtonText: '确定',
