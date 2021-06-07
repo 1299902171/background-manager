@@ -158,7 +158,7 @@ export default {
       editForm: {},
       //控制修改用户信息对话框的显示与隐藏
       editDialogVisible: false,
-      //修改表单的验证规则对象
+      // 修改表单的验证规则对象
       editFormRules: {
         email: [
           {
