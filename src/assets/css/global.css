@@ -34,3 +34,11 @@ html, body, #app {
 .ql-editor {
     min-height: 300px;
 }
+
+.el-cascader {
+    width: 100%;
+}
+
+.zIndex {
+    z-index: 5000 !important;
+}

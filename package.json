@@ -44,5 +44,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "env": {
+    "node": true
+  }
 }
